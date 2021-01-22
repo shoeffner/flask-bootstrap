@@ -8,20 +8,17 @@ from flask import Blueprint, current_app, url_for
 try:
     from wtforms.fields import HiddenField
 except ImportError:
-
     def is_hidden_field_filter(field):
         raise RuntimeError('WTForms is not installed.')
 else:
-
     def is_hidden_field_filter(field):
         return isinstance(field, HiddenField)
 
 
 from .forms import render_form
 
-__version__ = '3.3.7.1.dev1'
-BOOTSTRAP_VERSION = re.sub(r'^(\d+\.\d+\.\d+).*', r'\1', __version__)
-JQUERY_VERSION = '1.12.4'
+__version__ = '5.0.0-beta1'
+BOOTSTRAP_VERSION = '5.0.0-beta1'
 HTML5SHIV_VERSION = '3.7.3'
 RESPONDJS_VERSION = '1.4.2'
 
@@ -163,12 +160,8 @@ class Bootstrap(object):
             return ConditionalCDN('BOOTSTRAP_SERVE_LOCAL', primary, cdn)
 
         bootstrap = lwrap(
-            WebCDN('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/%s/' %
+            WebCDN('//cdn.jsdelivr.net/npm/bootstrap@%s/dist/' %
                    BOOTSTRAP_VERSION), local)
-
-        jquery = lwrap(
-            WebCDN('//cdnjs.cloudflare.com/ajax/libs/jquery/%s/' %
-                   JQUERY_VERSION), local)
 
         html5shiv = lwrap(
             WebCDN('//cdnjs.cloudflare.com/ajax/libs/html5shiv/%s/' %
@@ -182,8 +175,7 @@ class Bootstrap(object):
             'cdns': {
                 'local': local,
                 'static': static,
-                'bootstrap': bootstrap,
-                'jquery': jquery,
+                'jsdelivr': bootstrap,
                 'html5shiv': html5shiv,
                 'respond.js': respondjs,
             },

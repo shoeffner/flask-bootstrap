@@ -9,11 +9,13 @@ def read(fname):
 
 setup(
     name='Flask-Bootstrap',
-    version='3.3.7.2.dev1',
-    url='http://github.com/mbr/flask-bootstrap',
+    version='5.0.0-beta1',
+    url='http://github.com/shoeffner/flask-bootstrap',
     license='BSD',
     author='Marc Brinkmann',
     author_email='git@marcbrinkmann.de',
+    maintainer='Sebastian Höffner',
+    maintainer_email='shoeffner@tzi.de',
     description='An extension that includes Bootstrap in your '
     'project, without any boilerplate code.',
     long_description=read('README.rst'),
