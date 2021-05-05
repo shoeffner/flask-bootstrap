@@ -17,8 +17,8 @@ else:
 
 from .forms import render_form
 
-__version__ = '5.0.0-beta1'
-BOOTSTRAP_VERSION = '5.0.0-beta1'
+__version__ = '5.0.0-beta3'
+BOOTSTRAP_VERSION = __version__
 HTML5SHIV_VERSION = '3.7.3'
 RESPONDJS_VERSION = '1.4.2'
 
